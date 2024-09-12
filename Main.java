@@ -31,7 +31,26 @@ public class Main {
 		System.out.println("Nodes in the graph after removal: " + nodeList);
 	}
 
-    public static void test2() {
+	public static void test2() {
+		Graph g = new ListGraph();
+
+		g.addNode("a");
+		g.addNode("b");
+		g.addNode("c");
+		g.addNode("d");
+
+		List<String> nodeList = g.nodes();
+		System.out.println("Nodes in the graph before removal: " + nodeList);
+
+		g.addEdge("a", "c");
+
+		assert g.hasEdge("a", "c");
+
+		g.removeEdge("a", "c");
+		assert g.hasEdge("a", "c");
+	}
+
+    public static void test3() {
 	Graph g = new ListGraph();
 	EdgeGraph eg = new EdgeGraphAdapter(g);
 	Edge e = new Edge("a", "b");
@@ -40,8 +59,8 @@ public class Main {
     }
     
     public static void main(String[] args) {
-	test1();
-//	test2();
+//	test1();
+	test2();
     }
 
 }

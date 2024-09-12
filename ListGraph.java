@@ -53,7 +53,10 @@ public class ListGraph implements Graph {
     public boolean removeEdge(String n1, String n2) {
 	     if (!hasNode(n1) || !hasNode(n2)) { throw new NoSuchElementException(); }
 
+         nodes.get(n1).remove(n2);
+         nodes.get(n2).remove(n1);
 
+         return true;
     }
 
     public List<String> nodes() {
